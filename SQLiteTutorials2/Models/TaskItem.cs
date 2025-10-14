@@ -7,12 +7,12 @@ using SQLite;
 
 namespace SQLiteTutorials2.Models
 {
-    internal class TaskItem
+    public class TaskItem
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Title { get; set; }
-        public bool IsComplete { get; set; }
+        public bool IsCompleted { get; set; }
         public DateTime CreatedAt { get; set; }
 
     }
