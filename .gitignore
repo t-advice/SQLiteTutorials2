@@ -1,0 +1,70 @@
+﻿# Build results
+bin/
+obj/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+
+# Visual Studio Code
+.vscode/
+
+# MAUI specific
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# NuGet packages
+*.nupkg
+packages/
+.nuget/
+*.snupkg
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE crash reports
+*.pidb
+*.svclog
+
+# Auto-generated files
+Generated_Code/
+
+# Configuration files
+appsettings*.json
+
+# Xamarin/MAUI specific
+*.apk
+*.aab
+*.ipa
+*.app
+*.xcuserstate
+*.xcworkspace
+*.xcodeproj
+*.plist
+
+# Dotnet CLI
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Rider IDE
+.idea/
+
+# TFM-specific folders
+net*/bin/
+net*/obj/
+
+# Local secrets
+secrets.json
