@@ -24,4 +24,4 @@ A simple TaskItem app built with **.NET MAUI** and **SQLite**. This project demo
    ```bash
    git clone https://github.com/yourusername/SQLiteTutorials2.git
 
-## made by Tashwill, 2025
+## made by Tashwill, 2025  , Bellville , University of the Western Cape
