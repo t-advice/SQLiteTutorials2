@@ -24,4 +24,12 @@ A simple TaskItem app built with **.NET MAUI** and **SQLite**. This project demo
    ```bash
    git clone https://github.com/yourusername/SQLiteTutorials2.git
 
+
+
+   Notes:
+•	New columns are added automatically by sqlite-net when CreateTableAsync<TaskItem>() runs; indexes are created to keep queries fast.
+•	Search matches both Title and Tags. Tag filter accepts comma-separated tokens and matches any of them.
+•	Due filters use date ranges so it works with DateTime values stored by sqlite-net.
+•	Sorting supports CreatedAt, DueDate (NULLs last), Priority, and Title with ascending/descending toggle.
+
 ## made by Tashwill, 2025  , Bellville , University of the Western Cape
