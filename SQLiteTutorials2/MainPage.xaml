@@ -3,23 +3,94 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SQLiteTutorials2.MainPage">
 
-    <VerticalStackLayout Padding="20">
+    <VerticalStackLayout Padding="20" Spacing="8">
+
+        <!-- Add new task -->
         <Entry x:Name="TaskEntry" Placeholder="Add a new task..." />
+        <Entry x:Name="TagEntry" Placeholder="Tags (comma separated: work,home)" />
         <Button Text="Add Task" Clicked="OnAddTaskClicked" />
+
+        <BoxView HeightRequest="1" Color="#DDD" Margin="0,8" />
+
+        <!-- Search + Filters -->
+        <SearchBar x:Name="SearchBox" Placeholder="Search title or tags..." TextChanged="OnFilterChanged" />
+
+        <HorizontalStackLayout Spacing="8">
+            <VerticalStackLayout>
+                <Label Text="Status" FontSize="12" />
+                <Picker x:Name="StatusPicker" SelectedIndexChanged="OnFilterChanged">
+                    <Picker.Items>
+                        <x:String>All</x:String>
+                        <x:String>Active</x:String>
+                        <x:String>Completed</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Priority" FontSize="12" />
+                <Picker x:Name="PriorityPicker" SelectedIndexChanged="OnFilterChanged">
+                    <Picker.Items>
+                        <x:String>All</x:String>
+                        <x:String>Low</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>High</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Due" FontSize="12" />
+                <Picker x:Name="DuePicker" SelectedIndexChanged="OnFilterChanged">
+                    <Picker.Items>
+                        <x:String>Any</x:String>
+                        <x:String>Overdue</x:String>
+                        <x:String>Today</x:String>
+                        <x:String>This Week</x:String>
+                        <x:String>No Due Date</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="8">
+            <VerticalStackLayout>
+                <Label Text="Sort" FontSize="12" />
+                <Picker x:Name="SortPicker" SelectedIndexChanged="OnFilterChanged">
+                    <Picker.Items>
+                        <x:String>Created</x:String>
+                        <x:String>Due Date</x:String>
+                        <x:String>Priority</x:String>
+                        <x:String>Title</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="End">
+                <CheckBox x:Name="DescCheck" IsChecked="False" CheckedChanged="OnFilterChanged" />
+                <Label Text="Desc" FontSize="12" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Filter Tags" FontSize="12" />
+                <Entry x:Name="TagsFilterEntry" Placeholder="work,urgent" TextChanged="OnFilterChanged" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
 
         <CollectionView x:Name="TasksList">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Horizontal" Padding="5">
+                    <StackLayout Orientation="Horizontal" Padding="5" Spacing="8">
                         <CheckBox IsChecked="{Binding IsCompleted}" CheckedChanged="OnTaskCheckedChanged" />
                         <Label Text="{Binding Title}" VerticalOptions="Center" />
+                        <Label Text="{Binding Priority}" VerticalOptions="Center" TextColor="#666" />
+                        <Label Text="{Binding DueDate, StringFormat='{}{0:yyyy-MM-dd}'}" VerticalOptions="Center" TextColor="#666" />
+                        <Label Text="{Binding Tags}" VerticalOptions="Center" TextColor="#666" />
                         <Button Text="🗑️" Clicked="OnDeleteTaskClicked" CommandParameter="{Binding .}" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
     </VerticalStackLayout>
-
-
-
 </ContentPage>
